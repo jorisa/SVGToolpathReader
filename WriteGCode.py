@@ -278,6 +278,10 @@ def write_gcode(config, commands) -> typing.Tuple[str, cura.LayerDataBuilder.Lay
 	gcodes.append("M107") #Fans off.
 	gcodes.append(machine_end_gcode)
 
+	UM.Logger.Logger.log("d", "-------------------------------")
+	UM.Logger.Logger.log("d", "-- GCODE --")
+	UM.Logger.Logger.log("d", '\n'.join(gcodes))
+
 	return "\n".join(gcodes), builder
 
 def get_start_gcode(min_x, min_y, max_x, max_y) -> str:
